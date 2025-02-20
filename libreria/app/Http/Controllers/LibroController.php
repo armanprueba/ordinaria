@@ -41,6 +41,7 @@ $this->middleware('auth',
         $libro->editorial = $request('editorial');
         $libro->autor = $request('autor');
         $libro->save();
+        return redirect()->route('libros.index');
     }
 
     /**
