@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Libro;
-
+use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 
 class LibroController extends Controller
@@ -10,6 +10,13 @@ class LibroController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+
+public function __construct()
+{
+$this->middleware('auth',
+['only' => ['create', 'store', 'edit', 'update', 'destroy']]);
+}
     public function index()
     {
         $libros = Libro::get();
@@ -21,7 +28,7 @@ class LibroController extends Controller
      */
     public function create()
     {
-        //
+        return view('libros.create');
     }
 
     /**
@@ -29,7 +36,11 @@ class LibroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $libro = new Libro();
+        $libro->titulo = $request('titulo');
+        $libro->editorial = $request('editorial');
+        $libro->autor = $request('autor');
+        $libro->save();
     }
 
     /**

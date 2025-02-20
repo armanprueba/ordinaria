@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Models\Socio;
+use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
+
+
 
 class SocioController extends Controller
 {
@@ -11,9 +14,16 @@ class SocioController extends Controller
      */
     public function index()
     {
-        $socio = Socio::get();
-        return view('socios.index', compact('socio'));
+        $socios = Socio::get();
+        return view('socios.index', compact('socios'));
     }
+
+
+public function __construct()
+{
+$this->middleware('auth',
+['only' => ['create', 'store', 'edit', 'update', 'destroy']]);
+}
 
     /**
      * Show the form for creating a new resource.

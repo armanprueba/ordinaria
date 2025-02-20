@@ -6,9 +6,7 @@
 </title>
 </head>
 <body>
-<nav>
-<!-- ... Menú de navegación -->
-</nav>
+@include('partials.nav')
 @yield('contenido')
 </body>
 </html>

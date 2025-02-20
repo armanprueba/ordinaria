@@ -1,9 +1,11 @@
-<nav>
-<a href="{{ route('inicio') }}">Nuevo libro</a>
+@if(auth()->check())
+<nav class="navbar navbar-dark bg-dark">
+<a href="{{ route('libros.create') }}">Nuevo libro</a>
 &nbsp;&nbsp;
-<a href="{{ route('listado_libros') }}">Listado de libros</a>
+<a href="{{ route('libros.index') }}">Listado de libros</a>
 &nbsp;&nbsp;
-<a href="{{ route('listado_libros') }}">Listado de socios</a>
+<a href="{{ route('socios.index') }}">Listado de socios</a>
 &nbsp;&nbsp;
-<a href="{{ route('listado_libros') }}">Listado Prestamos</a>
+<a >Listado Prestamos</a>
 </nav>
+@endif

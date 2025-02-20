@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Socio extends Model
 {
-    public function prestamo(){
+    public function prestamos(){
         return $this->belongsToMany(Prestamo::class);
         }
 }

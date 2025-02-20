@@ -17,6 +17,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call(LibrosSeeder::class);
         $this->call(SociosSeeder::class);
-        
+        $this->call(UsersSeeder::class);
     }
 }
